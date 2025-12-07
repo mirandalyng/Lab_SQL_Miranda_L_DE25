@@ -23,3 +23,5 @@ Purpose of this lab is to use the knowledge of SQL and relational database learn
 ## Sources
 
 - [SQL - course repository](#https://github.com/AIgineerAB/duckdb_sql_analytics_course)
+
+- [Sakila Sample Database Documentation](#https://dev.mysql.com/doc/sakila/en/)
