@@ -1,0 +1,74 @@
+# ----------------------------------------
+# macOS
+# ----------------------------------------
+.DS_Store
+
+# ----------------------------------------
+# Python
+# ----------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.log
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# UV (om du använder uv)
+uv.lock
+
+# Jupyter 
+.ipynb_checkpoints/
+
+# Matplotlib
+# (creates cache for font etc)
+.matplotlib/
+
+# ----------------------------------------
+# DuckDB
+# ----------------------------------------
+*.duckdb
+*.wal
+
+# ----------------------------------------
+# dlt pipelines
+# ----------------------------------------
+.cache/
+dlt-pipeline.json
+.dlt/
+*.options.yaml
+
+# ----------------------------------------
+# Evidence
+# ----------------------------------------
+.evidence/
+.evidence/meta/
+.evidence/template/
+.evidence-cache/
+.evidence-output/
+static/data/
+
+# ----------------------------------------
+# Node 
+# ----------------------------------------
+node_modules/
+build/
+.svelte-kit/
+
+# ----------------------------------------
+# VS Code
+# ----------------------------------------
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+
+# ----------------------------------------
+# Environment variables
+# ----------------------------------------
+.env
+.env.*
