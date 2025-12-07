@@ -1,6 +1,6 @@
 # Lab1_SQL_Miranda_Lyng
 
-## Description & competence
+## Description & skills
 
 Purpose of this lab is to use the knowledge of SQL and relational database learnt from this course to find insights from DVD rental data.
 
@@ -10,7 +10,7 @@ Purpose of this lab is to use the knowledge of SQL and relational database learn
 
   [Sakila Database - Kaggle](#https://www.kaggle.com/datasets/atanaskanev/sqlite-sakila-sample-database?resource=download)
 
-### Competence that are used for this Lab:
+#### Skills that are used in this Lab:
 
 - SQL
 - duckdb
@@ -25,3 +25,7 @@ Purpose of this lab is to use the knowledge of SQL and relational database learn
 - [SQL - course repository](#https://github.com/AIgineerAB/duckdb_sql_analytics_course)
 
 - [Sakila Sample Database Documentation](#https://dev.mysql.com/doc/sakila/en/)
+
+- [Pandas Dataframe Methods](#https://www.programiz.com/python-programming/pandas/methods/dataframe)
+
+- UML for creating .gitignore and ask questions about pandas, df. NOT used for coding.
