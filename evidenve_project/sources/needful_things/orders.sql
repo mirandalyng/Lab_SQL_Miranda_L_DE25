@@ -1,1 +1,4 @@
-select * from orders
+SELECT
+    *
+FROM
+    orders;
