@@ -118,23 +118,28 @@ ORDER BY nr_of_movies DESC LIMIT 10;
 
 ```sql rent_times_per_customer
 SELECT
-    first_name,
-    last_name,
+    first_name || ' ' || last_name as customer_name,
     film_id,
+    title as movie_title,
     customer_id,
-    COUNT(*) as times_rented
+    COUNT(*) as times_rented_same_movie
 FROM sakila.rent_per_customer
 GROUP BY
     first_name,
     last_name,
     film_id,
+    Movie_title,
     customer_id
 ORDER BY
-    times_rented DESC;
+    times_rented_same_movie DESC;
 
 ```
 
-<DataTable data={rent_times_per_customer} title = "Rented Times" />
+<DataTable data={rent_times_per_customer} search = true title = "Rented Times">
+<Column id = customer_name align=left/>
+<Column id = movie_title align=left/>
+<Column id=times_rented_same_movie align=center contentType=colorscale/>  
+</DataTable>
 
 ### 2. Top 10 rental customers
 
@@ -156,3 +161,5 @@ ORDER BY
 <Column id= customer/>
 <Column id=total_rent_amount align=center contentType=colorscale fmt=usd/>  
 </DataTable>
+
+##
