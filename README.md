@@ -40,3 +40,5 @@ Purpose of this lab is to use the knowledge of SQL and relational database learn
 - [Python Pie Chart: Build and Style with Pandas and Matplotlib](#https://www.datacamp.com/tutorial/python-pie-chart?utm_cid=19589720821&utm_aid=157156375191&utm_campaign=230119_1-ps-other~dsa~tofu_2-b2c_3-emea_4-prc_5-na_6-na_7-le_8-pdsh-go_9-nb-e_10-na_11-na&utm_loc=9219068-&utm_mtd=-c&utm_kw=&utm_source=google&utm_medium=paid_search&utm_content=ps-other~emea-en~dsa~tofu~tutorial~python&gad_source=1&gad_campaignid=19589720821&gbraid=0AAAAADQ9WsFmBJ3PsMHiayj2z5bszdCNP&gclid=Cj0KCQiArt_JBhCTARIsADQZaymY8hcsmn_Ou8jcU2vubeiJf108cZhyALpuRyX2PYgVLK_hI53RkkgaAid6EALw_wcB)
 
 - [Evidence documentation](#https://docs.evidence.dev/)
+
+- [HTML/HEX color picker](#https://www.w3schools.com/colors/colors_picker.asp)
