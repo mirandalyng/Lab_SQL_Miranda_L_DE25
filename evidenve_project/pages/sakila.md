@@ -8,6 +8,8 @@ SELECT * FROM sakila.film;
 
 <DataTable title= Movies data={all_movies} search=true />
 
+# Task 1
+
 ## A. Movies longer than 3 hours (180 minutes)
 
 ```sql movies_over_3hours
@@ -21,7 +23,7 @@ ORDER BY length desc;
 
 <DataTable data={movies_over_3hours} title={"Data table of the long movies"} >
 <Column id=title />
-<Column id=length contentType=colorscale/>
+<Column id=length contentType=colorscale colorScale={['#cc0000', '#e74e4eff', '#ecb8b8ff']}/>
 </DataTable>
 
 ## B. Which movies have the word "love" in its title? Show the following columns
@@ -87,7 +89,7 @@ ORDER BY cost_per_day desc LIMIT 10
     <Column id=title />
     <Column id=rental_duration align=center/>
     <Column id=rental_rate align=center/>
-    <Column id=cost_per_day/>
+    <Column id=cost_per_day align=center/>
 </DataTable>
 
 ## E. Which actors have played in most movies? Top 10 actors with the number of movies they have played in.
@@ -103,7 +105,7 @@ ORDER BY nr_of_movies DESC LIMIT 10;
 
 ```
 
-<DataTable data={actors} title = Top_Actors />
+<DataTable data={actors} title = "Top Actors"/>
 
 <BarChart 
     data={actors}
@@ -138,7 +140,7 @@ ORDER BY
 <DataTable data={rent_times_per_customer} search = true title = "Rented Times">
 <Column id = customer_name align=left/>
 <Column id = movie_title align=left/>
-<Column id=times_rented_same_movie align=center contentType=colorscale/>  
+<Column id=times_rented_same_movie align=center contentType=colorscale colorScale={['#62947bff','#75b696ff','#aaf5cfff']}/>  
 </DataTable>
 
 ### 2. Top 10 rental customers
@@ -162,4 +164,27 @@ ORDER BY
 <Column id=total_rent_amount align=center contentType=colorscale fmt=usd/>  
 </DataTable>
 
-##
+### 3. What is the total sum of payments each staff has handled?
+
+```sql staff_handled_pay
+SELECT
+    staff_id,
+    first_name || ' ' || last_name as staff_name,
+    SUM(amount) as total_sum_rentedout_movies
+FROM sakila.staff_handled_payment
+GROUP BY
+    staff_id,
+    staff_name
+ORDER BY
+    total_sum_rentedout_movies DESC;
+
+```
+
+<BarChart
+data={staff_handled_pay}
+x=staff_name
+y=total_sum_rentedout_movies
+swapXY=true
+/>
+
+# Task 2
