@@ -184,7 +184,63 @@ ORDER BY
 data={staff_handled_pay}
 x=staff_name
 y=total_sum_rentedout_movies
+yFmt=usd
 swapXY=true
 />
 
 # Task 2
+
+## A. Top 5 paying customers
+
+```sql top_5_rental_customers
+SELECT
+    first_name || ' ' || last_name as customer,
+    customer_id,
+    ROUND(SUM(amount)) AS total_rent_amount,
+FROM sakila.top_10_renting_customers
+GROUP BY
+    customer_id,
+    customer
+ORDER BY
+    total_rent_amount DESC LIMIT 5;
+```
+
+<DataTable data={top_5_rental_customers} titel="Top 5 renting customers">
+<Column id = customer_id align=left/>
+<Column id= customer/>
+<Column id=total_rent_amount align=center contentType=colorscale fmt=usd/>  
+</DataTable>
+
+<FunnelChart 
+    title="Top 5 paying customers"
+    data={top_5_rental_customers} 
+    nameCol=customer
+    valueCol=total_rent_amount
+    valueFmt=usd
+    funnelSort=descending
+/>
+
+## B. How much money does each film category bring in?
+
+Make a bar chart showing total revenue per film category
+
+```sql earnings_per_film_category
+SELECT
+    film_category_name,
+    SUM(amount) as earnings
+FROM
+    sakila.income_per_film_category
+GROUP BY
+    film_category_name
+ORDER BY
+    earnings DESC,
+    film_category_name;
+```
+
+<BarChart 
+    data={earnings_per_film_category}
+    x=film_category_name
+    y=earnings
+    series=film_category_name
+    yFmt=usd
+/>
