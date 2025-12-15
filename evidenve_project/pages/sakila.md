@@ -1,12 +1,12 @@
-# BI - Report
+# LAB 1
 
-LAB 1- Task 3
+Author : Miranda Lyng
 
 ```sql all_movies
 SELECT * FROM sakila.film;
 ```
 
-<DataTable title= Movies data={all_movies} search=true />
+<DataTable title= "List and search of all movies" data={all_movies} search=true />
 
 # Task 1
 
@@ -21,12 +21,12 @@ WHERE length > 180
 ORDER BY length desc;
 ```
 
-<DataTable data={movies_over_3hours} title={"Data table of the long movies"} >
+<DataTable data={movies_over_3hours} title={"Data table of movies over 3 hours"} >
 <Column id=title />
 <Column id=length contentType=colorscale colorScale={['#cc0000', '#e74e4eff', '#ecb8b8ff']}/>
 </DataTable>
 
-## B. Which movies have the word "love" in its title? Show the following columns
+## B. Which movies have the word "love" in its title?
 
 ```sql title_love
 SELECT
@@ -39,7 +39,7 @@ WHERE
     regexp_matches(title, '\\bLOVE\\b');
 ```
 
-<DataTable data={title_love}> </DataTable>
+<DataTable data={title_love} title= "Movies with 'LOVE' in the title"> </DataTable>
 
 ## C. Statistics of movie-length
 
@@ -85,14 +85,14 @@ ORDER BY cost_per_day desc LIMIT 10
 
 ```
 
-<DataTable data={ten_most_expensive_per_day}>
+<DataTable data={ten_most_expensive_per_day} title="Rental cost per day">
     <Column id=title />
     <Column id=rental_duration align=center/>
     <Column id=rental_rate align=center/>
     <Column id=cost_per_day align=center/>
 </DataTable>
 
-## E. Which actors have played in most movies? Top 10 actors with the number of movies they have played in.
+## E. Top 10 actors with the number of movies they have played in.
 
 ```sql actors
 SELECT
@@ -105,9 +105,10 @@ ORDER BY nr_of_movies DESC LIMIT 10;
 
 ```
 
-<DataTable data={actors} title = "Top Actors"/>
+<DataTable data={actors} title = "Top 10 Actors"/>
 
 <BarChart 
+    title = "Top 10 actors chart"
     data={actors}
     x=actor
     y=nr_of_movies
@@ -137,7 +138,7 @@ ORDER BY
 
 ```
 
-<DataTable data={rent_times_per_customer} search = true title = "Rented Times">
+<DataTable data={rent_times_per_customer} search = true title = "Rented Times - search for customer/movie title/times rented">
 <Column id = customer_name align=left/>
 <Column id = movie_title align=left/>
 <Column id=times_rented_same_movie align=center contentType=colorscale colorScale={['#62947bff','#75b696ff','#aaf5cfff']}/>  
@@ -158,7 +159,7 @@ ORDER BY
     total_rent_amount DESC LIMIT 10;
 ```
 
-<DataTable data={top_10_rental_customers} titel="Top 10 renting customers">
+<DataTable data={top_10_rental_customers} title="Top 10 renting customers (amount in USD)">
 <Column id = customer_id align=left/>
 <Column id= customer/>
 <Column id=total_rent_amount align=center contentType=colorscale fmt=usd/>  
@@ -181,6 +182,7 @@ ORDER BY
 ```
 
 <BarChart
+title = "Sum of payments handled (in USD)"
 data={staff_handled_pay}
 x=staff_name
 y=total_sum_rentedout_movies
@@ -205,14 +207,14 @@ ORDER BY
     total_rent_amount DESC LIMIT 5;
 ```
 
-<DataTable data={top_5_rental_customers} titel="Top 5 renting customers">
+<DataTable data={top_5_rental_customers} title="Top 5 renting customers (in USD)">
 <Column id = customer_id align=left/>
 <Column id= customer/>
 <Column id=total_rent_amount align=center contentType=colorscale fmt=usd/>  
 </DataTable>
 
 <FunnelChart 
-    title="Top 5 paying customers"
+    title="Top 5 paying customers(in USD) - Funnel chart"
     data={top_5_rental_customers} 
     nameCol=customer
     valueCol=total_rent_amount
@@ -221,8 +223,6 @@ ORDER BY
 />
 
 ## B. How much money does each film category bring in?
-
-Make a bar chart showing total revenue per film category
 
 ```sql earnings_per_film_category
 SELECT
@@ -238,9 +238,38 @@ ORDER BY
 ```
 
 <BarChart 
+    title = "Earnings per film category (in USD)"
     data={earnings_per_film_category}
     x=film_category_name
     y=earnings
     series=film_category_name
     yFmt=usd
+/>
+
+## Top 10 cities with the most movies rented out
+
+Bonus
+
+```sql rentals_per_city
+SELECT
+    city,
+    COUNT(rental_count) as rental_cnt
+FROM
+    sakila.rentals_per_city
+GROUP BY
+
+    city,
+
+ORDER BY
+    rental_cnt desc
+LIMIT 10;
+
+```
+
+<BarChart
+title = "Top 10 cities for rented movies"
+data={rentals_per_city}
+x=city
+y=rental_cnt
+swapXY=true
 />
