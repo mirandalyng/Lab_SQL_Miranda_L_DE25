@@ -172,7 +172,7 @@ SELECT
     staff_id,
     first_name || ' ' || last_name as staff_name,
     SUM(amount) as total_sum_rentedout_movies
-FROM sakila.staff_handled_payment
+
 GROUP BY
     staff_id,
     staff_name
