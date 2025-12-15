@@ -14,7 +14,7 @@ duckdb_path = data_path / "sakila.duckdb"
 # Creating a source (extraction part of pipeline) that defines where the data is read from
 source = sql_database(credentials=f"sqlite:///{sql_lite_path}", schema="main")
 
-# Pipeline ( destination connector and )
+# Pipeline
 pipeline = dlt.pipeline(
     # pipeline name,
     pipeline_name="sakila_sqlite_duckdb",
